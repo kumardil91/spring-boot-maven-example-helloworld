@@ -3,6 +3,7 @@ node {
     git 'https://github.com/kumardil91/spring-boot-maven-example-helloworld'
    }
    stage('Build'){
-   sh 'mvn package'
+   //Get maven home path 
+   def mvnHome =  tool name: 'maven-3', type: 'maven'   
+      sh "${mvnHome}/bin/mvn clean package"
    }
- }
